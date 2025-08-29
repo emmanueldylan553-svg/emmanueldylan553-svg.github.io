@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEM PHYSICS EXTRAS - Registration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .logo-subtext {
+            font-size: 1.4rem;
+            opacity: 0.95;
+            font-style: italic;
+            margin-bottom: 15px;
+            font-weight: 500;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .teacher-info {
+            font-size: 1.3rem;
+            margin: 15px 0;
+            background: rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 30px;
+        }
+        
+        .physics-icon {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2.5rem;
+            opacity: 0.8;
+        }
+        
+        .ratio-icon {
+            position: absolute;
+            top: 70px;
+            right: 30px;
+            font-size: 2.5rem;
+            opacity: 0.8;
+        }
+        
+        .content {
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        @media (max-width: 900px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+            
+            .physics-icon, .ratio-icon {
+                display: none;
+            }
+        }
+        
+        .form-section {
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .info-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        h2 {
+            color: #1a2980;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #26d0ce;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            border-color: #26d0ce;
+            outline: none;
+        }
+        
+        .class-selection {
+            margin-bottom: 20px;
+        }
+        
+        .class-options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .class-option {
+            background: #edf2ff;
+            border: 2px solid #d0deff;
+            border-radius: 8px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .class-option.selected {
+            background: #d0deff;
+            border-color: #1a2980;
+            box-shadow: 0 0 15px rgba(26, 41, 128, 0.2);
+        }
+        
+        .class-option input {
+            width: auto;
+            margin-right: 10px;
+        }
+        
+        .class-label {
+            font-weight: 600;
+            color: #2c3e50;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .time-options {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+        
+        .time-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            padding: 8px;
+            background: white;
+            border-radius: 6px;
+        }
+        
+        .time-option input {
+            width: auto;
+            margin-right: 8px;
+        }
+        
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: #1a2980;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 20px;
+        }
+        
+        .btn:hover {
+            background: #26d0ce;
+        }
+        
+        .btn:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+        }
+        
+        .info-item {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .info-icon {
+            font-size: 24px;
+            color: #1a2980;
+            margin-right: 15px;
+            min-width: 30px;
+        }
+        
+        .info-content h3 {
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+        
+        .info-content p {
+            color: #5a6c82;
+        }
+        
+        .class-details {
+            background: #e4f0ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 25px;
+        }
+        
+        .class-details h3 {
+            color: #1a2980;
+            margin-bottom: 15px;
+        }
+        
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dashed #b5d0ff;
+        }
+        
+        .detail-item:last-child {
+            border-bottom: none;
+        }
+        
+        .success-message {
+            display: none;
+            background: #4ade80;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        footer {
+            background: #1a2980;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .required {
+            color: #e74c3c;
+        }
+        
+        .online-indicator {
+            color: #e74c3c;
+            font-weight: 600;
+        }
+        
+        .header-gradient {
+            height: 5px;
+            background: linear-gradient(90deg, #1a2980, #26d0ce, #1a2980);
+        }
+        
+        .physics-background {
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(26, 41, 128, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(38, 208, 206, 0.05) 0%, transparent 20%);
+        }
+        
+        .ratio-highlight {
+            color: #26d0ce;
+            font-weight: bold;
+        }
+        
+        .selection-note {
+            background: #fff9e6;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #ffcc00;
+            font-size: 0.9rem;
+        }
+        
+        .selection-note i {
+            color: #ffcc00;
+            margin-right: 8px;
+        }
+        
+        .contact-info {
+            background: #e4f0ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .contact-info a {
+            color: #1a2980;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Admin Section Styles */
+        .admin-section {
+            display: none;
+            padding: 20px;
+            background: #f0f8ff;
+            border-radius: 10px;
+            margin-top: 30px;
+            border: 2px solid #1a2980;
+        }
+        
+        .admin-login {
+            background: #e4f0ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .admin-table th, .admin-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .admin-table th {
+            background-color: #1a2980;
+            color: white;
+            position: sticky;
+            top: 0;
+        }
+        
+        .admin-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .admin-table tr:hover {
+            background-color: #e6f7ff;
+        }
+        
+        .admin-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .admin-btn {
+            padding: 10px 15px;
+            background: #1a2980;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            flex: 1;
+            min-width: 120px;
+        }
+        
+        .admin-btn:hover {
+            background: #26d0ce;
+        }
+        
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .stat-box {
+            background: #e4f0ff;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            min-width: 150px;
+            flex: 1;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #1a2980;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #5a6c82;
+            display: block;
+        }
+        
+        .admin-container {
+            max-height: 500px;
+            overflow-y: auto;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        
+        .data-management {
+            background: #e4f0ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .data-management h3 {
+            margin-top: 0;
+            color: #1a2980;
+        }
+        
+        .import-export {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        @media (max-width: 600px) {
+            .import-export {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .notification {
+            display: none;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            text-align: center;
+        }
+        
+        .notification.success {
+            background: #4ade80;
+            color: white;
+        }
+        
+        .notification.error {
+            background: #e74c3c;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <i class="fas fa-atom physics-icon"></i>
+            <i class="fas fa-divide ratio-icon"></i>
+            <div class="logo">DEM PHYSICS EXTRAS</div>
+            <div class="logo-subtext">it's all in the ratio</div>
+            <div class="teacher-info">Teacher: Dewite Emanuel</div>
+        </header>
+        
+        <div class="header-gradient"></div>
+        
+        <div class="content physics-background">
+            <div class="form-section">
+                <h2>Student Registration Form</h2>
+                
+                <div class="selection-note">
+                    <i class="fas fa-info-circle"></i>
+                    Please select only ONE class option below. You cannot register for multiple classes.
+                </div>
+                
+                <form id="registration-form">
+                    <div class="form-group">
+                        <label for="student-name">Student Name <span class="required">*</span></label>
+                        <input type="text" id="student-name" placeholder="First and Last Name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="school">School <span class="required">*</span></label>
+                        <input type="text" id="school" placeholder="Name of School" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="parent-name">Parent/Guardian Name <span class="required">*</span></label>
+                        <input type="text" id="parent-name" placeholder="Parent/Guardian Full Name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="parent-email">Parent/Guardian Email <span class="required">*</span></label>
+                        <input type="email" id="parent-email" placeholder="Email Address" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="parent-phone">Parent/Guardian Phone <span class="required">*</span></label>
+                        <input type="tel" id="parent-phone" placeholder="Phone Number" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="grade">Grade Level <span class="required">*</span></label>
+                        <select id="grade" required>
+                            <option value="">Select Grade Level</option>
+                            <option value="9">Grade 9</option>
+                            <option value="10">Grade 10</option>
+                            <option value="11">Grade 11</option>
+                            <option value="12">Grade 12</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group class-selection">
+                        <label>Select ONE Class <span class="required">*</span></label>
+                        <div class="class-options">
+                            <label class="class-option" id="csec-option">
+                                <input type="radio" name="class-type" value="csec-physics" required>
+                                <span class="class-label">CSEC Physics</span>
+                                <div class="time-options">
+                                    <label class="time-option">
+                                        <input type="radio" name="csec-time" value="saturday-morning">
+                                        <span>Saturdays 8:00 AM - 11:00 AM</span>
+                                    </label>
+                                    <label class="time-option">
+                                        <input type="radio" name="csec-time" value="saturday-afternoon">
+                                        <span>Saturdays 2:30 PM - 5:30 PM</span>
+                                    </label>
+                                    <label class="time-option">
+                                        <input type="radio" name="csec-time" value="sunday-morning">
+                                        <span>Sundays 9:00 AM - 12:00 PM</span>
+                                    </label>
+                                </div>
+                            </label>
+                            
+                            <label class="class-option" id="cape1-option">
+                                <input type="radio" name="class-type" value="cape-unit1">
+                                <span class="class-label">CAPE Unit 1</span>
+                                <div class="time-options">
+                                    <label class="time-option">
+                                        <input type="radio" name="cape1-time" value="saturday-late-morning">
+                                        <span>Saturdays 11:00 AM - 2:00 PM</span>
+                                    </label>
+                                    <label class="time-option">
+                                        <input type="radio" name="cape1-time" value="sunday-afternoon">
+                                        <span>Sundays 3:00 PM - 6:00 PM</span>
+                                    </label>
+                                </div>
+                            </label>
+                            
+                            <label class="class-option" id="cape2-option">
+                                <input type="radio" name="class-type" value="cape-unit2">
+                                <span class="class-label">CAPE Unit 2</span>
+                                <div class="time-options">
+                                    <label class="time-option">
+                                        <input type="radio" name="cape2-time" value="saturday-evening">
+                                        <span>Saturdays 5:30 PM - 8:30 PM</span>
+                                    </label>
+                                    <label class="time-option">
+                                        <input type="radio" name="cape2-time" value="sunday-early-afternoon">
+                                        <span>Sundays 12:00 PM - 3:00 PM</span>
+                                    </label>
+                                </div>
+                            </label>
+                            
+                            <label class="class-option" id="formers-option">
+                                <input type="radio" name="class-type" value="4th-formers">
+                                <span class="class-label">4th Formers</span>
+                                <div class="time-options">
+                                    <label class="time-option">
+                                        <input type="radio" name="4th-formers-time" value="tuesday-online">
+                                        <span>Tuesdays 4:30 PM - 7:00 PM <span class="online-indicator">(Online)</span></span>
+                                    </label>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn" id="submit-btn">Register Now</button>
+                    
+                    <div class="success-message" id="success-message">
+                        <i class="fas fa-check-circle" style="font-size: 3rem; margin-bottom: 15px;"></i>
+                        <h3>Registration Successful!</h3>
+                        <p>Thank you for registering for DEM PHYSICS EXTRAS. We will contact you shortly to confirm your registration.</p>
+                        <p>An email has been sent to Dewite Emanuel with your registration details.</p>
+                    </div>
+                </form>
+                
+                <div class="contact-info">
+                    <p><strong>Questions?</strong> Contact us directly:</p>
+                    <p><i class="fas fa-envelope"></i> Email: <a href="mailto:dewitee5@yahoo.com">dewitee5@yahoo.com</a></p>
+                    <p><i class="fab fa-whatsapp"></i> WhatsApp/Call: <a href="tel:8763182266">(876) 318-2266</a></p>
+                </div>
+                
+                <!-- Admin Login -->
+                <div class="admin-login">
+                    <h3>Admin Access</h3>
+                    <div class="form-group">
+                        <label for="admin-password">Password</label>
+                        <input type="password" id="admin-password" placeholder="Enter admin password">
+                    </div>
+                    <button class="admin-btn" id="admin-login-btn">View Registrations</button>
+                </div>
+                
+                <!-- Data Management -->
+                <div class="data-management">
+                    <h3>Data Management</h3>
+                    <p>To view registrations from multiple devices, use these import/export features:</p>
+                    
+                    <div class="import-export">
+                        <div>
+                            <h4>Export Data</h4>
+                            <p>Download all registration data as a JSON file to transfer to other devices.</p>
+                            <button class="admin-btn" id="export-json-btn">Export JSON</button>
+                        </div>
+                        <div>
+                            <h4>Import Data</h4>
+                            <p>Upload JSON file from another device to combine registration data.</p>
+                            <input type="file" id="import-json-file" accept=".json" style="margin-bottom: 10px;">
+                            <button class="admin-btn" id="import-json-btn">Import JSON</button>
+                        </div>
+                    </div>
+                    
+                    <div id="import-notification" class="notification"></div>
+                </div>
+                
+                <!-- Admin Section -->
+                <div class="admin-section" id="admin-section">
+                    <div class="admin-header">
+                        <h2>Registered Students</h2>
+                        <button class="admin-btn" id="admin-logout-btn">Logout</button>
+                    </div>
+                    
+                    <div class="stats">
+                        <div class="stat-box">
+                            <span class="stat-number" id="total-registrations">0</span>
+                            <span class="stat-label">Total Registrations</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number" id="csec-count">0</span>
+                            <span class="stat-label">CSEC Physics</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number" id="cape1-count">0</span>
+                            <span class="stat-label">CAPE Unit 1</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number" id="cape2-count">0</span>
+                            <span class="stat-label">CAPE Unit 2</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number" id="formers-count">0</span>
+                            <span class="stat-label">4th Formers</span>
+                        </div>
+                    </div>
+                    
+                    <div class="admin-actions">
+                        <button class="admin-btn" id="export-btn">Export to CSV</button>
+                        <button class="admin-btn" id="clear-btn">Clear All Data</button>
+                        <button class="admin-btn" id="refresh-btn">Refresh Data</button>
+                    </div>
+                    
+                    <div class="admin-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Student Name</th>
+                                    <th>School</th>
+                                    <th>Parent Name</th>
+                                    <th>Parent Email</th>
+                                    <th>Parent Phone</th>
+                                    <th>Grade</th>
+                                    <th>Class</th>
+                                    <th>Time Slot</th>
+                                    <th>Registration Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="registrations-table-body">
+                                <!-- Data will be populated here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-section">
+                <h2>Course Information</h2>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Expert Instruction</h3>
+                        <p>Learn from Dewite Emanuel, an experienced educator specializing in CSEC and CAPE curriculum.</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Comprehensive Curriculum</h3>
+                        <p>Cover all Physics topics with in-depth lessons and practical examples. Remember, <span class="ratio-highlight">it's all in the ratio</span>!</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Flexible Schedule</h3>
+                        <p>Choose from multiple class times to fit your schedule.</p>
+                    </div>
+                </div>
+                
+                <div class="class-details">
+                    <h3>Available Class Details</h3>
+                    
+                    <div class="detail-item">
+                        <span>CSEC Physics:</span>
+                        <span>Sat 8AM-11AM, Sat 2:30PM-5:30PM, Sun 9AM-12PM</span>
+                    </div>
+                    <div class="detail-item">
+                        <span>CAPE Unit 1:</span>
+                        <span>Sat 11AM-2PM, Sun 3PM-6PM</span>
+                    </div>
+                    <div class="detail-item">
+                        <span>CAPE Unit 2:</span>
+                        <span>Sat 5:30PM-8:30PM, Sun 12PM-3PM</span>
+                    </div>
+                    <div class="detail-item">
+                        <span>4th Formers:</span>
+                        <span>Tue 4:30PM-7:00PM (Online)</span>
+                    </div>
+                    <div class="detail-item">
+                        <span>Teacher:</span>
+                        <span>Dewite Emanuel</span>
+                    </div>
+                    <div class="detail-item">
+                        <span>Materials:</span>
+                        <span>Provided for all classes</span>
+                    </div>
+                </div>
+                
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p><i class="fas fa-envelope"></i> Email: <a href="mailto:dewitee5@yahoo.com">dewitee5@yahoo.com</a></p>
+                    <p><i class="fab fa-whatsapp"></i> WhatsApp/Call: <a href="tel:8763182266">(876) 318-2266</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>DEM PHYSICS EXTRAS Registration System &copy; 2023 | Teacher: Dewite Emanuel | <em>it's all in the ratio</em></p>
+            <p>Contact: <a href="mailto:dewitee5@yahoo.com" style="color: #26d0ce;">dewitee5@yahoo.com</a> | <a href="tel:8763182266" style="color: #26d0ce;">(876) 318-2266</a></p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('registration-form');
+            const classOptions = document.querySelectorAll('.class-option');
+            const submitBtn = document.getElementById('submit-btn');
+            const adminLoginBtn = document.getElementById('admin-login-btn');
+            const adminLogoutBtn = document.getElementById('admin-logout-btn');
+            const adminSection = document.getElementById('admin-section');
+            const exportBtn = document.getElementById('export-btn');
+            const clearBtn = document.getElementById('clear-btn');
+            const refreshBtn = document.getElementById('refresh-btn');
+            const exportJsonBtn = document.getElementById('export-json-btn');
+            const importJsonBtn = document.getElementById('import-json-btn');
+            const importJsonFile = document.getElementById('import-json-file');
+            const importNotification = document.getElementById('import-notification');
+            
+            // Set admin password to "itsallintheratio1329"
+            const ADMIN_PASSWORD = "itsallintheratio1329";
+            
+            // Initialize registrations array in localStorage if it doesn't exist
+            if (!localStorage.getItem('demPhysicsRegistrations')) {
+                localStorage.setItem('demPhysicsRegistrations', JSON.stringify([]));
+            }
+            
+            // Add visual feedback for class selection
+            classOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove selected class from all options
+                    classOptions.forEach(opt => {
+                        opt.classList.remove('selected');
+                        // Uncheck all radio buttons
+                        const radio = opt.querySelector('input[type="radio"]');
+                        radio.checked = false;
+                    });
+                    
+                    // Add selected class to clicked option
+                    this.classList.add('selected');
+                    const radio = this.querySelector('input[type="radio"]');
+                    radio.checked = true;
+                    
+                    // Enable submit button
+                    submitBtn.disabled = false;
+                });
+            });
+            
+            // Form validation
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simple form validation
+                const requiredFields = document.querySelectorAll('input[required], select[required]');
+                let valid = true;
+                
+                requiredFields.forEach(field => {
+                    if (!field.value) {
+                        valid = false;
+                        field.style.borderColor = '#e74c3c';
+                    } else {
+                        field.style.borderColor = '#ddd';
+                    }
+                });
+                
+                // Check if a class is selected
+                const classSelected = document.querySelector('input[name="class-type"]:checked');
+                if (!classSelected) {
+                    valid = false;
+                    document.querySelector('.class-selection').style.border = '2px solid #e74c3c';
+                    document.querySelector('.class-selection').style.padding = '10px';
+                    document.querySelector('.class-selection').style.borderRadius = '8px';
+                } else {
+                    document.querySelector('.class-selection').style.border = 'none';
+                    document.querySelector('.class-selection').style.padding = '0';
+                    
+                    // Check if a time is selected for the chosen class
+                    const classValue = classSelected.value;
+                    let timeSelected = false;
+                    
+                    if (classValue === 'csec-physics') {
+                        timeSelected = document.querySelector('input[name="csec-time"]:checked');
+                    } else if (classValue === 'cape-unit1') {
+                        timeSelected = document.querySelector('input[name="cape1-time"]:checked');
+                    } else if (classValue === 'cape-unit2') {
+                        timeSelected = document.querySelector('input[name="cape2-time"]:checked');
+                    } else if (classValue === '4th-formers') {
+                        timeSelected = document.querySelector('input[name="4th-formers-time"]:checked');
+                    }
+                    
+                    if (!timeSelected) {
+                        valid = false;
+                        const timeOptions = classSelected.closest('.class-option').querySelector('.time-options');
+                        timeOptions.style.border = '2px solid #e74c3c';
+                        timeOptions.style.borderRadius = '5px';
+                        timeOptions.style.padding = '5px';
+                    }
+                }
+                
+                if (valid) {
+                    // Save registration data
+                    const registration = {
+                        id: Date.now(), // Unique ID for each registration
+                        studentName: document.getElementById('student-name').value,
+                        school: document.getElementById('school').value,
+                        parentName: document.getElementById('parent-name').value,
+                        parentEmail: document.getElementById('parent-email').value,
+                        parentPhone: document.getElementById('parent-phone').value,
+                        grade: document.getElementById('grade').value,
+                        classType: document.querySelector('input[name="class-type"]:checked').value,
+                        timeSlot: getSelectedTimeSlot(),
+                        registrationDate: new Date().toLocaleString()
+                    };
+                    
+                    saveRegistration(registration);
+                    
+                    // Send email notification (simulated)
+                    sendEmailNotification(registration);
+                    
+                    // Show success message
+                    document.getElementById('success-message').style.display = 'block';
+                    
+                    // Scroll to success message
+                    document.getElementById('success-message').scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Reset form after 5 seconds
+                    setTimeout(function() {
+                        form.reset();
+                        classOptions.forEach(opt => opt.classList.remove('selected'));
+                        document.getElementById('success-message').style.display = 'none';
+                        submitBtn.disabled = true;
+                    }, 5000);
+                }
+            });
+            
+            // Get selected time slot
+            function getSelectedTimeSlot() {
+                const classType = document.querySelector('input[name="class-type"]:checked').value;
+                
+                if (classType === 'csec-physics') {
+                    const selected = document.querySelector('input[name="csec-time"]:checked');
+                    return selected ? selected.parentElement.textContent.trim() : 'Not selected';
+                } else if (classType === 'cape-unit1') {
+                    const selected = document.querySelector('input[name="cape1-time"]:checked');
+                    return selected ? selected.parentElement.textContent.trim() : 'Not selected';
+                } else if (classType === 'cape-unit2') {
+                    const selected = document.querySelector('input[name="cape2-time"]:checked');
+                    return selected ? selected.parentElement.textContent.trim() : 'Not selected';
+                } else if (classType === '4th-formers') {
+                    const selected = document.querySelector('input[name="4th-formers-time"]:checked');
+                    return selected ? selected.parentElement.textContent.trim() : 'Not selected';
+                }
+                
+                return 'Not selected';
+            }
+            
+            // Save registration to localStorage
+            function saveRegistration(registration) {
+                let registrations = JSON.parse(localStorage.getItem('demPhysicsRegistrations') || '[]');
+                registrations.push(registration);
+                localStorage.setItem('demPhysicsRegistrations', JSON.stringify(registrations));
+            }
+            
+            // Simulate sending email notification
+            function sendEmailNotification(registration) {
+                // In a real implementation, this would connect to a server-side API
+                // For demonstration, we'll just log to console
+                console.log('Sending email notification for registration:');
+                console.log(registration);
+                
+                const emailBody = `
+                    New Registration for DEM PHYSICS EXTRAS:
+                    
+                    Student Name: ${registration.studentName}
+                    School: ${registration.school}
+                    Parent Name: ${registration.parentName}
+                    Parent Email: ${registration.parentEmail}
+                    Parent Phone: ${registration.parentPhone}
+                    Grade: ${registration.grade}
+                    Class: ${registration.classType}
+                    Time Slot: ${registration.timeSlot}
+                    Registration Date: ${registration.registrationDate}
+                `;
+                
+                console.log('Email content:', emailBody);
+                
+                // In a real implementation, you would use something like:
+                // fetch('/api/send-email', { method: 'POST', body: JSON.stringify(registration) });
+            }
+            
+            // Admin login functionality
+            adminLoginBtn.addEventListener('click', function() {
+                const password = document.getElementById('admin-password').value;
+                
+                if (password === ADMIN_PASSWORD) {
+                    adminSection.style.display = 'block';
+                    loadRegistrations();
+                    updateStats();
+                } else {
+                    alert('Incorrect password. Please try again.');
+                }
+            });
+            
+            // Admin logout functionality
+            adminLogoutBtn.addEventListener('click', function() {
+                adminSection.style.display = 'none';
+                document.getElementById('admin-password').value = '';
+            });
+            
+            // Refresh button functionality
+            refreshBtn.addEventListener('click', function() {
+                loadRegistrations();
+                updateStats();
+                alert('Data refreshed!');
+            });
+            
+            // Load registrations into admin table
+            function loadRegistrations() {
+                const registrations = JSON.parse(localStorage.getItem('demPhysicsRegistrations') || '[]');
+                const tableBody = document.getElementById('registrations-table-body');
+                
+                tableBody.innerHTML = '';
+                
+                if (registrations.length === 0) {
+                    tableBody.innerHTML = '<tr><td colspan="9" style="text-align: center;">No registrations found.</td></tr>';
+                    return;
+                }
+                
+                // Sort registrations by date (newest first)
+                registrations.sort((a, b) => b.id - a.id);
+                
+                registrations.forEach(reg => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${reg.studentName}</td>
+                        <td>${reg.school}</td>
+                        <td>${reg.parentName}</td>
+                        <td>${reg.parentEmail}</td>
+                        <td>${reg.parentPhone}</td>
+                        <td>Grade ${reg.grade}</td>
+                        <td>${reg.classType}</td>
+                        <td>${reg.timeSlot}</td>
+                        <td>${reg.registrationDate}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            }
+            
+            // Update statistics
+            function updateStats() {
+                const registrations = JSON.parse(localStorage.getItem('demPhysicsRegistrations') || '[]');
+                
+                document.getElementById('total-registrations').textContent = registrations.length;
+                
+                // Count by class type
+                const csecCount = registrations.filter(r => r.classType === 'csec-physics').length;
+                const cape1Count = registrations.filter(r => r.classType === 'cape-unit1').length;
+                const cape2Count = registrations.filter(r => r.classType === 'cape-unit2').length;
+                const formersCount = registrations.filter(r => r.classType === '4th-formers').length;
+                
+                document.getElementById('csec-count').textContent = csecCount;
+                document.getElementById('cape1-count').textContent = cape1Count;
+                document.getElementById('cape2-count').textContent = cape2Count;
+                document.getElementById('formers-count').textContent = formersCount;
+            }
+            
+            // Export to CSV functionality
+            exportBtn.addEventListener('click', function() {
+                const registrations = JSON.parse(localStorage.getItem('demPhysicsRegistrations') || '[]');
+                
+                if (registrations.length === 0) {
+                    alert('No data to export.');
+                    return;
+                }
+                
+                // Create CSV content
+                let csvContent = "Student Name,School,Parent Name,Parent Email,Parent Phone,Grade,Class,Time Slot,Registration Date\n";
+                
+                registrations.forEach(reg => {
+                    csvContent += `"${reg.studentName}","${reg.school}","${reg.parentName}","${reg.parentEmail}","${reg.parentPhone}","Grade ${reg.grade}","${reg.classType}","${reg.timeSlot}","${reg.registrationDate}"\n`;
+                });
+                
+                // Create download link
+                const encodedUri = encodeURI("data:text/csv;charset=utf-8," + csvContent);
+                const link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", "dem_physics_registrations.csv");
+                document.body.appendChild(link);
+                
+                link.click();
+                document.body.removeChild(link);
+            });
+            
+            // Export to JSON functionality
+            exportJsonBtn.addEventListener('click', function() {
+                const registrations = JSON.parse(localStorage.getItem('demPhysicsRegistrations') || '[]');
+                
+                if (registrations.length === 0) {
+                    alert('No data to export.');
+                    return;
+                }
+                
+                // Create JSON content
+                const jsonContent = JSON.stringify(registrations, null, 2);
+                const blob = new Blob([jsonContent], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                
+                // Create download link
+                const link = document.createElement("a");
+                link.setAttribute("href", url);
+                link.setAttribute("download", "dem_physics_registrations.json");
+                document.body.appendChild(link);
+                
+                link.click();
+                document.body.removeChild(link);
+                URL.revokeObjectURL(url);
+            });
+            
+            // Import from JSON functionality
+            importJsonBtn.addEventListener('click', function() {
+                const file = importJsonFile.files[0];
+                
+                if (!file) {
+                    showNotification('Please select a JSON file to import.', 'error');
+                    return;
+                }
+                
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    try {
+                        const importedData = JSON.parse(e.target.result);
+                        
+                        if (!Array.isArray(importedData)) {
+                            showNotification('Invalid file format. Expected an array of registrations.', 'error');
+                            return;
+                        }
+                        
+                        // Get current registrations
+                        const currentRegistrations = JSON.parse(localStorage.getItem('demPhysicsRegistrations') || '[]');
+                        
+                        // Merge data, avoiding duplicates based on ID
+                        const mergedRegistrations = [...currentRegistrations];
+                        const existingIds = new Set(currentRegistrations.map(r => r.id));
+                        
+                        let newCount = 0;
+                        importedData.forEach(reg => {
+                            if (!existingIds.has(reg.id)) {
+                                mergedRegistrations.push(reg);
+                                newCount++;
+                            }
+                        });
+                        
+                        // Save merged data
+                        localStorage.setItem('demPhysicsRegistrations', JSON.stringify(mergedRegistrations));
+                        
+                        // Update UI
+                        loadRegistrations();
+                        updateStats();
+                        
+                        showNotification(`Successfully imported ${newCount} new registration(s).`, 'success');
+                        
+                    } catch (error) {
+                        showNotification('Error parsing JSON file: ' + error.message, 'error');
+                    }
+                };
+                
+                reader.onerror = function() {
+                    showNotification('Error reading file.', 'error');
+                };
+                
+                reader.readAsText(file);
+            });
+            
+            // Show notification
+            function showNotification(message, type) {
+                importNotification.textContent = message;
+                importNotification.className = 'notification ' + type;
+                importNotification.style.display = 'block';
+                
+                // Hide notification after 5 seconds
+                setTimeout(() => {
+                    importNotification.style.display = 'none';
+                }, 5000);
+            }
+            
+            // Clear all data functionality
+            clearBtn.addEventListener('click', function() {
+                if (confirm('Are you sure you want to clear all registration data? This action cannot be undone.')) {
+                    localStorage.setItem('demPhysicsRegistrations', JSON.stringify([]));
+                    loadRegistrations();
+                    updateStats();
+                    alert('All registration data has been cleared.');
+                }
+            });
+            
+            // Initially disable submit button
+            submitBtn.disabled = true;
+        });
+    </script>
+</body>
+</html>
